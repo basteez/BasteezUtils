@@ -1,10 +1,7 @@
 package com.basteez.utils;
 
 import java.sql.Timestamp;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +51,12 @@ public class WorkingTimeRangesCalculator{
    * @param endTimestamp
    * @return
    */
-  public int getWorkingMinutes(final Timestamp startTimestamp, final Timestamp endTimestamp) {
+  public int getWorkingMinutes(Timestamp startTimestamp, Timestamp endTimestamp) {
     if (null == startTimestamp || null == endTimestamp) {
-      throw new IllegalStateException();
+      throw new IllegalStateException("Start date and end date can't be NULL");
     }
     if (endTimestamp.before(startTimestamp)) {
-      return -1;
+      throw new DateTimeException("Start date must be prior to end date");
     }
 
     // start and end working hours
@@ -118,6 +115,7 @@ public class WorkingTimeRangesCalculator{
    * @param endYear
    */
   private void initializeHolidaysList(int startYear, int endYear){
+    holidays.clear();
     this.startYear = startYear;
     this.endYear = endYear;
     for(int year = startYear; year<= endYear; year++){
