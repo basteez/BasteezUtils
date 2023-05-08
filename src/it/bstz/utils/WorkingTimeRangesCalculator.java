@@ -1,4 +1,4 @@
-package com.basteez.utils;
+package it.bstz.utils;
 
 import java.sql.Timestamp;
 import java.time.*;

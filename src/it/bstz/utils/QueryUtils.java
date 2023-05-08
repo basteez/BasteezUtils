@@ -1,4 +1,4 @@
-package com.basteez.utils;
+package it.bstz.utils;
 
 //this is needed if you want to use capitalize() instead of the legacy way
 //import org.apache.commons.lang3.StringUtils;
