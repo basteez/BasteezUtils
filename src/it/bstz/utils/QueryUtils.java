@@ -38,7 +38,7 @@ public class QueryUtils {
 
             //this approach remove the needs of a library
             f = f.substring(0, 1).toUpperCase() + f.substring(1);
-            return f;
+            return f.replace("_", " ");
         });
         return fields;
     }
