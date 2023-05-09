@@ -19,7 +19,7 @@ public class QueryUtils {
         if (selectStmntIndex == -1) {
             throw new Exception("\"SELECT\" statement not found in query: \"" + query + "\"");
         }
-        int fromStmntIndex = query.indexOf("from");
+        int fromStmntIndex = query.toLowerCase().indexOf("from");
         if (fromStmntIndex == -1) {
             throw new Exception("\"FROM\" statement not found in query: \"" + query + "\"");
         }
