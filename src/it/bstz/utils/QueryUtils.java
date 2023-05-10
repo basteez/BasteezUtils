@@ -52,6 +52,10 @@ public class QueryUtils {
      */
     public static String addSchemaToQuery(String query, String schema) throws Exception {
         String tableName = getTableName(query);
+        if (tableName.contains(".")) {
+            // schema is already present
+            return query;
+        }
         int tableNameIndex = query.indexOf(tableName);
         return query.substring(0, tableNameIndex) + schema + "." + query.substring(tableNameIndex);
     }
